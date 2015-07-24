@@ -18,7 +18,7 @@ Inductive instr : Set :=
 
 Extraction Language Haskell.
 
-Extract Inductive Z => "Int" ["0" "0" "0"].
+Extract Inductive Z => "Int" ["0" "fail" "fail"].
 Extract Inductive nat => "Int" ["0" "(fun x -> x + 1)"].
 
 Extraction "X86.hs" reg mkReg instr.

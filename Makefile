@@ -3,10 +3,13 @@ CC := coqc
 SRC := $(shell find ./ -type f -name '*.v')
 OBJ := $(patsubst %.v, %.vo, $(SRC))
 
-%.vo: %.v
+all: $(OBJ)
+
+X86_64.vo: X86_64.v
 	$(CC) $<
 
-all: $(OBJ)
+ArrayArith.vo: ArrayArith.v X86_64.vo
+	$(CC) $<
 
 clean:
 	find ./ -type f -name '*.vo' -delete
